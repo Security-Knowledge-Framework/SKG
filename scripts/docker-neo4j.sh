@@ -7,11 +7,16 @@
 . ./scripts/setenv.sh
 
 # Start the neo4j docker container
+
 docker run \
     --rm \
+    --interactive \
     --publish=7474:7474 --publish=7687:7687 \
     --env=NEO4J_AUTH=${NEO4J_USER}/${NEO4J_PASSWORD} \
-    --volume=$pwd/neo4j/data:/data \
-    --volume=$pwd/neo4j/logs:/logs \
-    --volume=$pwd/neo4j/conf:/conf \
+    --volume=$HOME/neo4j/data:/data \
+    --volume=$HOME/neo4j/logs:/logs \
+    --volume=$HOME/neo4j/conf:/conf \
     neo4j
+    
+# If Neo4j fails to start, try the following:
+# sudo chown neo4j:neo4j $HOME/neo4j/conf
