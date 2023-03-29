@@ -4,7 +4,7 @@
 # Currently not installable in devContainer
 
 # Setup the environment variables
-source ./scripts/setenv.sh
+. ./scripts/setenv.sh
 
 # Start the neo4j docker container
 docker run \
